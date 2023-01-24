@@ -1,7 +1,23 @@
+import { FormEvent, useState } from 'react'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 
 export default function Home() {
+  type UserSearch = {user: string, submitted: boolean}
+  const [userSearch, setUserSearch] = useState<UserSearch>({user: "", submitted: false})
+  const [userData, setUserData] = useState<null | object>(null)
+
+  async function fetchData() {
+    const response: Response = await fetch(`https://api.github.com/users/${userSearch.user}`)
+    const data: object = await response.json()
+    setUserData(data)
+  }
+
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault()
+    fetchData()
+  }
+
   return (
     <>
       <Head>
@@ -11,7 +27,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-
+        <h1>GitHub REST API</h1>
+        <form onSubmit={(event) => handleSubmit(event)}>
+          <input 
+            type="text" 
+            value={userSearch.user}
+            onChange={(event) => setUserSearch(prev => ({user: event.target.value, submitted: prev.submitted}))}
+            placeholder='Search by user...'
+          />
+          <button>Submit</button>
+        </form>
       </main>
     </>
   )
