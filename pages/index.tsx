@@ -27,6 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <>
         <h1>GitHub REST API</h1>
         <form onSubmit={(event) => handleSubmit(event)}>
           <input 
@@ -37,6 +38,16 @@ export default function Home() {
           />
           <button>Submit</button>
         </form>
+        {userData && (
+          <div>
+            {Object.entries(userData).map(([key, value]) => (
+              <div key={key}>
+                <p>{key}: {value}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        </>
       </main>
     </>
   )
