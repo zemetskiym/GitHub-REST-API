@@ -11,6 +11,7 @@ export default function Home() {
     const response: Response = await fetch(`https://api.github.com/users/${userSearch.user}`)
     const data: object = await response.json()
     setUserData(data)
+    console.log(data)
   }
 
   function handleSubmit(event: FormEvent) {
@@ -42,7 +43,7 @@ export default function Home() {
           <div>
             {Object.entries(userData).map(([key, value]) => (
               <div key={key}>
-                <p>{key}: {value}</p>
+                <p>{key}: {value == null ? "null" : value}</p>
               </div>
             ))}
           </div>
