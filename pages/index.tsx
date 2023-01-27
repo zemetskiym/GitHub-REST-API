@@ -62,7 +62,9 @@ export default function Home() {
             </p>
             {(userData as any).location && <p className={styles.additionalInfo}>{(userData as any).location}</p>}
             {(userData as any).email && <p className={styles.additionalInfo}>{(userData as any).email}</p>}
-            {(userData as any).blog && <p className={styles.additionalInfo}>{(userData as any).blog}</p>}
+            {(userData as any).blog && 
+              <a target="_blank" href={`${(userData as any).blog}`}><p className={styles.additionalInfo}>{(userData as any).blog}</p></a>
+            }
             {(userData as any).twitter_username && <p className={styles.additionalInfo}>@{(userData as any).twitter_username}</p>}
           </div>}
           <div id={styles.data}>

@@ -10,6 +10,10 @@
     color: #fff;
 }
 
+a {
+    text-decoration: none;
+}
+
 @font-face {
     font-family: 'Mona Sans';
     src:
