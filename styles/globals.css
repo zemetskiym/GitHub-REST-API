@@ -26,13 +26,3 @@ a {
 html {
     font-family: 'Mona Sans';
 }
-
-main {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #0d1116;
-    padding: 10px;
-}
