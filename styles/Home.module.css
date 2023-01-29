@@ -19,6 +19,7 @@
 #title {
     font-size: 2rem;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 #form {
@@ -28,6 +29,7 @@
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 #input {
