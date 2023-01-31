@@ -11,6 +11,9 @@ A website that collects public information on Github users using the Github API.
 - TypeScript
 - Node.js
 
+## Live Demo
+Check out the live demo at [GitHub REST API](https://github-rest-user.netlify.app/).
+
 ## Setup
 To run the project locally, follow these steps:
 1. Clone the repository
