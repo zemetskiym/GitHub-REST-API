@@ -33,7 +33,6 @@ export default function Home() {
     const response: Response = await fetch(`https://api.github.com/users/${userSearch.user}`)
     const data: object = await response.json()
     setUserData(data)
-    console.log(data)
   }
 
   function handleSubmit(event: FormEvent) {
