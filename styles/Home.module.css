@@ -52,54 +52,6 @@
     background: linear-gradient(0deg, rgba(112,64,200,1) 0%, rgba(130,64,200,1) 100%);
 }
 
-#profile {
-    width: 350px;
-    margin-top: 20px;
-    float: right;
-}
-
-.center {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
-
-#profilePic {
-    border-radius: 50%;
-    border: 1px solid #2e343a;
-}
-
-#name {
-    color: #c9d1d9;
-    font-size: 150%;
-    margin: 20px 0 2px 0;
-}
-
-#login {
-    color: #727a83;
-    font-size: 120%;
-    font-weight: 300;
-    margin-bottom: 20px;
-}
-
-#bio {
-    color: #c9d1d9;
-    font-size: 110%;
-    font-weight: 400;
-}
-
-#followers {
-    margin: 20px 0 20px 0;
-    font-size: 90%;
-    font-weight: 300;
-}
-
-.additionalInfo {
-    color: #c9d1d9;
-    font-weight: 300;
-    margin-bottom: 2px;
-}
-
 #data {
     width: 600px;
     border-radius: 5px;

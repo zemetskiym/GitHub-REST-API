@@ -1,0 +1,47 @@
+.center {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+#profile {
+    width: 350px;
+    margin-top: 20px;
+    float: right;
+}
+
+#profilePic {
+    border-radius: 50%;
+    border: 1px solid #2e343a;
+}
+
+#name {
+    color: #c9d1d9;
+    font-size: 150%;
+    margin: 20px 0 2px 0;
+}
+
+#login {
+    color: #727a83;
+    font-size: 120%;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+#bio {
+    color: #c9d1d9;
+    font-size: 110%;
+    font-weight: 400;
+}
+
+#followers {
+    margin: 20px 0 20px 0;
+    font-size: 90%;
+    font-weight: 300;
+}
+
+.additionalInfo {
+    color: #c9d1d9;
+    font-weight: 300;
+    margin-bottom: 2px;
+}
