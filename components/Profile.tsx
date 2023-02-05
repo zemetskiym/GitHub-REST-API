@@ -14,7 +14,7 @@ interface Profile {
   twitter_username: string | null
 }
 
-export default function Profile (userData: Partial<Profile>): any {
+export default function Profile (userData: Partial<Profile>): JSX.Element {
   return (
     <>
       <div id={styles.profile}>

@@ -1,6 +1,5 @@
 import { FormEvent, useState } from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import Profile from '@/components/Profile'
 import DataList from '@/components/DataList'
