@@ -1,0 +1,54 @@
+#secondSection {
+    margin: 0 20px 0 20px;
+}
+
+#data {
+    width: 600px;
+    border-radius: 5px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    margin-top: 10px;
+}
+
+.keyValue {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    font-size: 70%;
+}
+
+.key {
+    color: #75bfff;
+    width: 25%;
+    padding-left: 2%;
+}
+
+.value {
+    width: 75%;
+    word-wrap: break-word;
+    padding-right: 2%;
+}
+
+@media screen and (max-width: 630px) {
+    #data {
+        width: 95vw;
+    }
+    .key {
+        width: 35%;
+    }
+    .value {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .key {
+        width: 40%;
+    }
+    .value {
+        width: 60%;
+    }
+}

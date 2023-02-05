@@ -3,32 +3,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import Profile from '@/components/Profile'
+import DataList from '@/components/DataList'
 
 export default function Home() {
   type UserSearch = {user: string, submitted: boolean}
   const [userSearch, setUserSearch] = useState<UserSearch>({user: "", submitted: false})
   const [userData, setUserData] = useState<null | object>(null)
-
-  function determineDataColor(key: string, value: null | number | boolean | string): object {
-    const style = {
-      color: value === null ? '#939395' : 
-      typeof value == "number" || typeof value == "boolean" ? '#86de74' : '#ff7de9',
-    };
-
-    return (
-      <div className={styles.keyValue}>
-        <span className={styles.key}>{key}:</span>
-        <span style={style} className={styles.value}>
-          {
-            value == null ? "null" :
-            value == false ? "false" :
-            value == true ? "true" :
-            typeof value == "string" ? `"${value}"` : value
-          }
-        </span>
-      </div>
-    )
-  }
 
   async function fetchData() {
     const response: Response = await fetch(`https://api.github.com/users/${userSearch.user}`)
@@ -73,19 +53,7 @@ export default function Home() {
         )}
         </div>
 
-        {userData && (
-          <div id={styles.secondSection}>
-          <div id={styles.data}>
-            {Object.entries(userData).map(([key, value]) => (
-              <div key={key}>
-                <>
-                {determineDataColor(key, value)}
-                </>
-              </div>
-            ))}
-          </div>
-          </div>
-        )}
+        {userData && <DataList {...userData} />}
       </main>
     </>
   )
