@@ -34,7 +34,7 @@ interface User {
     updated_at: string
 }
 
-export default function DataList(userData: User): JSX.Element {
+export default function DataList(userData: Partial<User>): JSX.Element {
     function determineDataColor(key: string, value: null | number | boolean | string): object {
         const style = {
           color: value === null ? '#939395' : 
