@@ -2,14 +2,21 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: row;
     background-color: #0d1116;
     padding: 20px 10px 20px 10px;
 }
 
-#firstSection {
-    margin: 0 20px 0 20px;
+#layoutSidebar {
+    margin: 0 15px 0 15px;
+}
+
+#layoutMain {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px 0 15px;
 }
 
 #title {
@@ -56,5 +63,12 @@
 @media screen and (max-width: 1030px) {
     #main {
         flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    #layoutMain {
+        width: 95vw;
     }
 }

@@ -3,16 +3,24 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Profile from '@/components/Profile'
 import DataList from '@/components/DataList'
+import Repositories from '@/components/Repositories'
 
 export default function Home() {
   type UserSearch = {user: string, submitted: boolean}
   const [userSearch, setUserSearch] = useState<UserSearch>({user: "", submitted: false})
   const [userData, setUserData] = useState<null | object>(null)
+  const [repoData, setRepoData] = useState<null | object>(null)
+  const [section, setSection] = useState<string>("repositories")
 
   async function fetchData() {
-    const response: Response = await fetch(`https://api.github.com/users/${userSearch.user}`)
-    const data: object = await response.json()
-    setUserData(data)
+    let userResponse: Response = await fetch(`https://api.github.com/users/${userSearch.user}`)
+    let userData: object = await userResponse.json()
+    setUserData(userData)
+
+    let repositoryResponse: Response = await fetch(`https://api.github.com/users/${userSearch.user}/repos`)
+    let repositoryData: object = await repositoryResponse.json()
+    setRepoData(repositoryData)
+    console.log(repositoryData)
   }
 
   function handleSubmit(event: FormEvent) {
@@ -30,7 +38,7 @@ export default function Home() {
         <link rel="preload" href="Mona-Sans.woff2" as="font" type="font/woff2" crossOrigin="anonymous"></link>
       </Head>
       <main id={styles.main}> 
-        <div id={styles.firstSection}>
+        <div id={styles.layoutSidebar}>
           <h1 id={styles.title}>GitHub REST API</h1>
           <form id={styles.form} onSubmit={(event) => handleSubmit(event)}>
             <input 
@@ -52,7 +60,12 @@ export default function Home() {
         )}
         </div>
 
-        {userData && <DataList {...userData} />}
+        {userData && 
+          <div id={styles.layoutMain}>
+            {section == "repositories" && repoData != null && <Repositories {...repoData} />}
+            {section == "data" && <DataList {...userData} />}
+          </div> 
+        }
       </main>
     </>
   )

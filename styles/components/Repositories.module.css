@@ -1,0 +1,82 @@
+#repositories {
+    max-height: 94vh;
+    overflow-y: scroll;
+    overflow-x: wrap;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.repository {
+    border: 1px  #21262d;
+    border-style: none none solid none;
+    padding: 24px 0 24px 0;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.name {
+    color: #58a6ff;
+    font-size: 120%;
+    margin-right: 10px;
+}
+
+.visibility {
+    font-weight: 300;
+    color: #c9d1d9;
+    border: 1px solid #3a3f45;
+    border-radius: 10px;
+    padding: 1px 5px;
+    font-size: 80%;
+}
+
+.description {
+    font-weight: 300;
+    color: #c9d1d9;
+    font-size: 90%;
+}
+
+.topics {
+    display: inline-block;
+    color: #58a6ff;
+    background-color: #13233a;
+    border-radius: 10px;
+    padding: 4px 10px;
+    font-size: 80%;
+    margin: 20px 3px 0 0;
+}
+
+.additionalInfo {
+    margin-top: 15px;
+}
+
+.language {
+    color: #c9d1d9;
+    font-size: 80%;
+    margin-right: 15px;
+    font-weight: 300;
+}
+
+.license {
+    color: #c9d1d9;
+    font-size: 80%;
+    font-weight: 300;
+    margin-right: 15px;
+}
+
+.updatedAt {
+    color: #c9d1d9;
+    font-size: 80%;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 1030px) {
+    #repositories {
+        max-height: none;
+    }
+}
