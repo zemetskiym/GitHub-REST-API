@@ -20,7 +20,6 @@ export default function Home() {
     let repositoryResponse: Response = await fetch(`https://api.github.com/users/${userSearch.user}/repos`)
     let repositoryData: object = await repositoryResponse.json()
     setRepoData(repositoryData)
-    console.log(repositoryData)
   }
 
   function handleSubmit(event: FormEvent) {
