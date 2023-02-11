@@ -28,6 +28,10 @@ export default function Home() {
     fetchData()
   }
 
+  const positionForm = {
+    alignItems: userData ? "flex-start" : "center"
+  }
+
   return (
     <>
       <Head>
@@ -37,7 +41,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.svg" />
         <link rel="preload" href="Mona-Sans.woff2" as="font" type="font/woff2" crossOrigin="anonymous"></link>
       </Head>
-      <main id={styles.main}> 
+      <main id={styles.main} style={positionForm}> 
         <div id={styles.layoutSidebar}>
           <h1 id={styles.title}>GitHub REST API</h1>
           <form id={styles.form} onSubmit={(event) => handleSubmit(event)}>
