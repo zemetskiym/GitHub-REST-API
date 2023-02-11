@@ -1,7 +1,4 @@
 #repositories {
-    max-height: 94vh;
-    overflow-y: scroll;
-    overflow-x: wrap;
     width: 100%;
     border-radius: 5px;
 }
@@ -73,10 +70,4 @@
     color: #c9d1d9;
     font-size: 80%;
     font-weight: 300;
-}
-
-@media screen and (max-width: 1030px) {
-    #repositories {
-        max-height: none;
-    }
 }
