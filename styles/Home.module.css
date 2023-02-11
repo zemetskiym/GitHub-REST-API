@@ -65,6 +65,12 @@
         flex-direction: column;
         align-items: center;
     }
+    #layoutSidebar {
+        margin: 0;
+    }
+    #layoutMain {
+        margin: 0;
+    }
 }
 
 @media screen and (max-width: 630px) {
