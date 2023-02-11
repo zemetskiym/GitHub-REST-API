@@ -41,7 +41,16 @@
 }
 
 .additionalInfo {
+    display: flex;
+    margin-bottom: 2px;
+}
+
+.infoText {
     color: #c9d1d9;
     font-weight: 300;
-    margin-bottom: 2px;
+}
+
+.infoImage {
+    filter: invert(51%) sepia(6%) saturate(544%) hue-rotate(171deg) brightness(92%) contrast(96%);
+    margin-right: 10px;
 }

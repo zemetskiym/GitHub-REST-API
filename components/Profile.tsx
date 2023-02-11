@@ -8,6 +8,7 @@ interface Profile {
   bio: string | null,
   followers: number | boolean,
   following: number | boolean,
+  company: string | null,
   location: string | null,
   email: string | null,
   blog: string | boolean,
@@ -31,12 +32,37 @@ export default function Profile (userData: Partial<Profile>): JSX.Element {
           {userData.following} 
           <span style={{color: "#8b949e"}}> following </span>
         </p>
-        {userData.location && <p className={styles.additionalInfo}>{userData.location}</p>}
-        {userData.email && <p className={styles.additionalInfo}>{userData.email}</p>}
-        {userData.blog && 
-          <a target="_blank" href={`${userData.blog}`}><p className={styles.additionalInfo}>{userData.blog}</p></a>
+        
+        {userData.company && 
+        <div className={styles.additionalInfo}>
+          <Image alt="" src="/organization.svg" height={15} width={15}  className={styles.infoImage} />
+          <p className={styles.infoText}>{userData.company}</p>
+        </div>
         }
-        {userData.twitter_username && <p className={styles.additionalInfo}>@{userData.twitter_username}</p>}
+        {userData.location && 
+        <div className={styles.additionalInfo}>
+          <Image alt="" src="/location.svg" height={15} width={15} className={styles.infoImage} />
+          <p className={styles.infoText}>{userData.location}</p>
+        </div>
+        }
+        {userData.email && 
+        <div className={styles.additionalInfo}>
+          <Image alt="" src="/mail.svg" height={15} width={15} className={styles.infoImage} />
+          <p className={styles.infoText}>{userData.email}</p>
+        </div>
+        }
+        {userData.blog && 
+        <div className={styles.additionalInfo}>
+          <Image alt="" src="/link.svg" height={15} width={15} className={styles.infoImage} />
+          <a target="_blank" href={`${userData.blog}`}><p className={styles.infoText}>{userData.blog}</p></a>
+        </div>
+        }
+        {userData.twitter_username && 
+        <div className={styles.additionalInfo}>
+          <Image alt="" src="/twitter.svg" height={15} width={15} className={styles.infoImage} />
+          <p className={styles.infoText}>@{userData.twitter_username}</p>
+        </div>
+        }
       </div>
     </>
   )
