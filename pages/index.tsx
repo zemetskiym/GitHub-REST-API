@@ -15,11 +15,12 @@ export default function Home() {
   async function fetchData() {
     let userResponse: Response = await fetch(`https://api.github.com/users/${userSearch.user}`)
     let userData: object = await userResponse.json()
-    setUserData(userData)
+    if (!userData.hasOwnProperty('message')) setUserData(userData)
+    if (userData.hasOwnProperty('message')) alert("Invalid username. Please try again.")
 
     let repositoryResponse: Response = await fetch(`https://api.github.com/users/${userSearch.user}/repos`)
     let repositoryData: object = await repositoryResponse.json()
-    setRepoData(repositoryData)
+    if (!repositoryData.hasOwnProperty('message')) setRepoData(repositoryData)
   }
 
   function handleSubmit(event: FormEvent) {
