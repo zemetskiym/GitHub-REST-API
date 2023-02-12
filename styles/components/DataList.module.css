@@ -5,8 +5,7 @@
 #data {
     width: 100%;
     border-radius: 5px;
-    background-color: #161b22;
-    border: 1px solid #30363d;
+    margin-top: 5px;
 }
 
 .keyValue {
