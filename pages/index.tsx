@@ -2,14 +2,15 @@ import { FormEvent, useState } from 'react'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Profile from '@/components/Profile'
+import SectionNav from '@/components/SectionNav'
 import DataList from '@/components/DataList'
 import Repositories from '@/components/Repositories'
 
 export default function Home() {
   type UserSearch = {user: string, submitted: boolean}
   const [userSearch, setUserSearch] = useState<UserSearch>({user: "", submitted: false})
-  const [userData, setUserData] = useState<null | object>(null)
-  const [repoData, setRepoData] = useState<null | object>(null)
+  const [userData, setUserData] = useState<object | null>(null)
+  const [repoData, setRepoData] = useState<object | null>(null)
   const [section, setSection] = useState<string>("repositories")
 
   async function fetchData() {
@@ -66,6 +67,7 @@ export default function Home() {
 
         {userData && 
           <div id={styles.layoutMain}>
+            <SectionNav section={section} setSection={setSection} />
             {section == "repositories" && repoData != null && <Repositories {...repoData} />}
             {section == "data" && <DataList {...userData} />}
           </div> 
