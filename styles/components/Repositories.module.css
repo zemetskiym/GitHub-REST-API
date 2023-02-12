@@ -49,8 +49,18 @@
 }
 
 .additionalInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin-top: 15px;
 }
+
+.icon {
+    filter: invert(51%) sepia(6%) saturate(544%) hue-rotate(171deg) brightness(92%) contrast(96%);
+    margin-right: 5px;
+}
+
+
 
 .language {
     color: #c9d1d9;

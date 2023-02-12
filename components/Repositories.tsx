@@ -1,5 +1,6 @@
 import styles from "../styles/components/Repositories.module.css"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Repositories(repoData: any): JSX.Element {
     interface Repo {
@@ -10,6 +11,7 @@ export default function Repositories(repoData: any): JSX.Element {
         description: string | null,
         topics: string[],
         language: string,
+        forks_count: number,
         license: {name: string} | null,
         updated_at: string,
     }
@@ -33,7 +35,18 @@ export default function Repositories(repoData: any): JSX.Element {
                     {repo.topics?.map(x => <span className={styles.topics}>{x}</span>)}
                     <div className={styles.additionalInfo}>
                         {repo.language && <small className={styles.language}>{repo.language}</small>}
-                        {repo.license && <small className={styles.license}>{repo.license && repo.license.name}</small>}
+                        {repo.forks_count != undefined && repo.forks_count > 0 && 
+                        <>
+                            <Image alt="" src="/repo-forked.svg" height={18} width={18} className={styles.icon} />
+                            <small className={styles.language}>{repo.forks_count}</small>
+                        </>
+                        }
+                        {repo.license && 
+                        <>
+                            <Image alt="" src="/law.svg" height={18} width={18} className={styles.icon} />
+                            <small className={styles.license}>{repo.license && repo.license.name}</small>
+                        </>
+                        }
                         <small className={styles.updatedAt}>Updated {repo.updated_at}</small>
                     </div>
                 </div>
