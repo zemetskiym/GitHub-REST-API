@@ -13,7 +13,7 @@
 }
 
 #layoutMain {
-    width: 600px;
+    width: 800px;
     display: flex;
     flex-direction: column;
     margin: 0 15px 0 15px;
@@ -47,6 +47,8 @@
     height: 100%;
     width: 48%;
     background-color: #7040c8;
+    font-weight: 600;
+    color: #fff;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
 }

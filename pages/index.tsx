@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
+import Overview from '@/components/Overview'
 import Profile from '@/components/Profile'
 import SectionNav from '@/components/SectionNav'
 import DataList from '@/components/DataList'
@@ -11,7 +12,7 @@ export default function Home() {
   const [userSearch, setUserSearch] = useState<UserSearch>({user: "", submitted: false})
   const [userData, setUserData] = useState<object | null>(null)
   const [repoData, setRepoData] = useState<object | null>(null)
-  const [section, setSection] = useState<string>("repositories")
+  const [section, setSection] = useState<string>("overview")
 
   async function fetchData() {
     let userResponse: Response = await fetch(`https://api.github.com/users/${userSearch.user}`)
@@ -54,7 +55,7 @@ export default function Home() {
               placeholder='Search by user...'
             />
             <button id={styles.submit}>
-              <b>Submit</b>
+              Submit
             </button>
           </form>
 
@@ -68,6 +69,7 @@ export default function Home() {
         {userData && 
           <div id={styles.layoutMain}>
             <SectionNav section={section} setSection={setSection} />
+            {section == "overview" && <Overview {...userData} />}
             {section == "repositories" && repoData != null && <Repositories {...repoData} />}
             {section == "data" && <DataList {...userData} />}
           </div> 
