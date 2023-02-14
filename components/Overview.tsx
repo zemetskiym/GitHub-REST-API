@@ -1,6 +1,7 @@
 import styles from "../styles/components/Overview.module.css"
 import { useState, useEffect } from "react"
 import { marked } from 'marked';
+import Link from "next/link";
 
 interface User {
     login: string,
@@ -39,20 +40,33 @@ interface User {
 export default function Overview (userData: Partial<User>): JSX.Element {
     const [readme, setReadme] = useState<any>(null);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<any>(null);
     interface Readme {content: string}
 
     useEffect(() => {
         async function fetchData () {
             setLoading(true)
-            let readmeResponse: Response = await fetch(`https://api.github.com/repos/${userData.login}/${userData.login}/readme`)
-            let readmeData: Readme = await readmeResponse.json()
-            setReadme(marked.parse(Buffer.from(readmeData.content, "base64").toString()));
-            setLoading(false);
+            try {
+                let readmeResponse: Response = await fetch(`https://api.github.com/repos/${userData.login}/${userData.login}/readme`)
+                let readmeData: Readme = await readmeResponse.json()
+                setReadme(marked.parse(Buffer.from(readmeData.content, "base64").toString()))
+                setLoading(false) 
+            } catch(error) {
+                setError(true)
+                return
+            }
+            setLoading(false)
         }
         fetchData()
     }, [userData])
     
+    if (error) return (
+        <div id={styles.error}>This user has no profile readme. For more information, visit the documentation 
+            <Link id={styles.documentation} target="_blank" href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme">here</Link>.
+        </div>
+    )
+
+    if (loading) return (<div id={styles.loading}>Loading...</div>)
 
     return (
         <div id={styles.readmeContainer}>

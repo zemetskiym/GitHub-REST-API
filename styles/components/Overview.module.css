@@ -8,3 +8,15 @@
 #title {
     font-size: 70%;
 }
+
+#error {
+    margin-top: 20px;
+}
+
+#documentation {
+    color: #58a6ff;
+}
+
+#loading {
+    margin-top: 20px;
+}
