@@ -55,7 +55,7 @@ export default function Home() {
               placeholder='Search by user...'
             />
             <button id={styles.submit}>
-              <b>Submit</b>
+              Submit
             </button>
           </form>
 

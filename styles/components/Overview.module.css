@@ -1,0 +1,10 @@
+#readmeContainer {
+    border: 1px #30363d solid;
+    border-radius: 6px;
+    padding: 24px;
+    margin-top: 20px;
+}
+
+#title {
+    font-size: 70%;
+}

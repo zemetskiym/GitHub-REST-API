@@ -15,7 +15,6 @@ body {
   
 /* Set default styles for headings */
 h1, h2, h3, h4, h5, h6 {
-    margin: 0;
     padding: 0;
     font-weight: normal;
 }
@@ -23,38 +22,38 @@ h1, h2, h3, h4, h5, h6 {
 /* Define default styles for headings */
 h1 {
     font-size: 2em;
+    margin: 18px 0 10px 0;
 }
 h2 {
     font-size: 1.5em;
+    margin: 16px 0 8px 0
 }
 h3 {
     font-size: 1.17em;
+    margin: 14px 0 6px 0
 }
 h4 {
     font-size: 1em;
+    margin: 12px 0 4px 0
 }
 h5 {
     font-size: 0.83em;
+    margin: 10px 0 4px 0
 }
 h6 {
     font-size: 0.67em;
+    margin: 8px 0 4px 0
 }
   
   /* Set default styles for paragraphs */
 p {
     margin: 1em 0;
     padding: 0;
-}
-  
-  /* Set default styles for lists */
-ul, ol {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    font-weight: 300;
 }
   
 hr {
-    border: solid 1px;
+    border: solid #727a83 1px;
 }
 
 a {

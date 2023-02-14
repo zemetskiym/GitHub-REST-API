@@ -1,4 +1,4 @@
-import styles from "..styles/components/Overview.module.css"
+import styles from "../styles/components/Overview.module.css"
 import { useState, useEffect } from "react"
 import { marked } from 'marked';
 
@@ -55,6 +55,9 @@ export default function Overview (userData: Partial<User>): JSX.Element {
     
 
     return (
-        <div dangerouslySetInnerHTML={{__html: readme}} />
+        <div id={styles.readmeContainer}>
+            <small id={styles.title}>{userData.login} <span style={{color: "#727a83"}}>/</span> README<span style={{color: "#727a83"}}>.md</span></small>
+            <div dangerouslySetInnerHTML={{__html: readme}} />
+        </div>
     )
 }
