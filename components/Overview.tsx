@@ -1,5 +1,6 @@
 import styles from "..styles/components/Overview.module.css"
 import { useState, useEffect } from "react"
+import { marked } from 'marked';
 
 interface User {
     login: string,
@@ -46,13 +47,14 @@ export default function Overview (userData: Partial<User>): JSX.Element {
             setLoading(true)
             let readmeResponse: Response = await fetch(`https://api.github.com/repos/${userData.login}/${userData.login}/readme`)
             let readmeData: Readme = await readmeResponse.json()
-            setReadme(Buffer.from(readmeData.content, "base64").toString());
+            setReadme(marked.parse(Buffer.from(readmeData.content, "base64").toString()));
             setLoading(false);
         }
         fetchData()
     }, [userData])
     
+
     return (
-        <div></div>
+        <div dangerouslySetInnerHTML={{__html: readme}} />
     )
 }
