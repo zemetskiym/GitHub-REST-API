@@ -7,17 +7,18 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
     color: #c9d1d9;
     list-style-type: none;
     margin: 4px 0 4px 0;
+    padding: 0;
 }
 
 .sectionItem {
-    padding: 20px 0 20px 0;
+    cursor: pointer;
+    padding: 20px;
     height: 100%;
-    width: 50%;
     text-align: center;
     border: 2px;
     border-style: none none solid none;

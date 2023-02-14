@@ -14,6 +14,7 @@ export default function SectionNav({ section, setSection }: Props): JSX.Element 
     return (
         <nav id={styles.sectionNav}>
             <ul id={styles.sectionList}>
+                <li className={styles.sectionItem} style={underlineSelection("overview")} onClick={() => setSection("overview")}>Overview</li>
                 <li className={styles.sectionItem} style={underlineSelection("repositories")} onClick={() => setSection("repositories")}>Repositories</li>
                 <li className={styles.sectionItem} style={underlineSelection("data")} onClick={() => setSection("data")}>Data</li>
             </ul>
