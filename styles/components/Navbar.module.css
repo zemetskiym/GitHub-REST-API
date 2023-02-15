@@ -1,0 +1,21 @@
+#nav {
+    background-color: #161b22;
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.navSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+.navLink {
+    margin-left: 20px;
+    font-size: 90%;
+    color: white;
+}
