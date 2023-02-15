@@ -8,7 +8,7 @@ export default function Navbar (): JSX.Element {
             <ul className={styles.navSection}>
                 <li>
                     <Link href="/">
-                        <Image alt="" src="/github.svg" height={35} width={35} />
+                        <Image alt="" src="/github.svg" height={30} width={30} />
                     </Link>
                 </li>
             </ul>
