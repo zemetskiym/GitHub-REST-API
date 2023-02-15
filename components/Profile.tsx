@@ -19,7 +19,7 @@ export default function Profile (userData: Partial<Profile>): JSX.Element {
   return (
     <>
       <div id={styles.profile}>
-        <div className={styles.center}>
+        <div className={styles.picContainer}>
           <Image id={styles.profilePic} alt="Avatar URL" src={`${userData.avatar_url}`} width={300} height={300} />
         </div>
         <h3 id={styles.name}>{userData.name}</h3>

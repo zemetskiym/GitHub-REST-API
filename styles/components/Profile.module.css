@@ -1,4 +1,4 @@
-.center {
+.picContainer {
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -56,4 +56,13 @@
 .infoImage {
     filter: invert(51%) sepia(6%) saturate(544%) hue-rotate(171deg) brightness(92%) contrast(96%);
     margin-right: 10px;
+}
+
+@media screen and (max-width: 1030px) {
+    #profile {
+        width: 100%;
+    }
+    .picContainer {
+        justify-content: flex-start;
+    }
 }
