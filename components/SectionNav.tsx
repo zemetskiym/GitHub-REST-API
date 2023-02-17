@@ -1,4 +1,5 @@
 import styles from "../styles/components/SectionNav.module.css";
+import Image from "next/image";
 
 interface Props {
   section: string
@@ -14,9 +15,18 @@ export default function SectionNav({ section, setSection }: Props): JSX.Element 
     return (
         <nav id={styles.sectionNav}>
             <ul id={styles.sectionList}>
-                <li className={styles.sectionItem} style={underlineSelection("overview")} onClick={() => setSection("overview")}>Overview</li>
-                <li className={styles.sectionItem} style={underlineSelection("repositories")} onClick={() => setSection("repositories")}>Repositories</li>
-                <li className={styles.sectionItem} style={underlineSelection("data")} onClick={() => setSection("data")}>Data</li>
+                <li className={styles.sectionItem} style={underlineSelection("overview")} onClick={() => setSection("overview")}>
+                    <Image className={styles.icon} src="/book.svg" alt="" height={15} width={15} />
+                    Overview
+                </li>
+                <li className={styles.sectionItem} style={underlineSelection("repositories")} onClick={() => setSection("repositories")}>
+                    <Image className={styles.icon} src="/repo.svg" alt="" height={15} width={15} />
+                    Repositories
+                </li>
+                <li className={styles.sectionItem} style={underlineSelection("data")} onClick={() => setSection("data")}>
+                    <Image className={styles.icon} src="/code.svg" alt="" height={15} width={15} />
+                    Data
+                </li>
             </ul>
         </nav>
     )

@@ -16,10 +16,17 @@
 }
 
 .sectionItem {
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    padding: 20px;
+    padding: 20px 10px;
     height: 100%;
     text-align: center;
     border: 2px;
     border-style: none none solid none;
+}
+
+.icon {
+    filter: invert(48%) sepia(36%) saturate(101%) hue-rotate(171deg) brightness(92%) contrast(97%);
+    margin-right: 8px;
 }
