@@ -27,7 +27,10 @@ export default function Repositories({ repoData }: any): JSX.Element {
             <form id={styles.form}>
                 <input onChange={(event) => {setSearch(event.target.value)}} type="text" id={styles.searchbar} placeholder="Find a repository..." />
             </form>
-            {repoData.map((object: object) => 
+            {repoData.filter((object: Repo) => {
+                if (search == "") return object
+                if (object.name.toLowerCase().includes(search.toLowerCase())) return object
+            }).map((object: object) => 
             {
             let repo = object as Partial<Repo>
             return(
