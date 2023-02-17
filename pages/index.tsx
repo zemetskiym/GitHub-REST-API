@@ -71,7 +71,7 @@ export default function Home() {
           <div id={styles.layoutMain}>
             <SectionNav section={section} setSection={setSection} />
             {section == "overview" && <Overview {...userData} />}
-            {section == "repositories" && repoData != null && <Repositories {...repoData} />}
+            {section == "repositories" && repoData != null && <Repositories repoData={repoData} />}
             {section == "data" && <DataList {...userData} />}
           </div> 
         }

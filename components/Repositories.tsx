@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
 
-export default function Repositories(repoData: any): JSX.Element {
+export default function Repositories({ repoData }: any): JSX.Element {
     const [search, setSearch] = useState<string>("")
     interface Repo {
         id: number,
@@ -27,7 +27,7 @@ export default function Repositories(repoData: any): JSX.Element {
             <form id={styles.form}>
                 <input onChange={(event) => {setSearch(event.target.value)}} type="text" id={styles.searchbar} placeholder="Find a repository..." />
             </form>
-            {Object.entries(repoData).map(([repoNum, object]) => 
+            {repoData.map((object: object) => 
             {
             let repo = object as Partial<Repo>
             return(
