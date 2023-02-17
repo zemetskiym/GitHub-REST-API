@@ -1,8 +1,10 @@
 import styles from "../styles/components/Repositories.module.css"
 import Link from "next/link"
 import Image from "next/image"
+import { useState } from "react"
 
-export default function Repositories(repoData: any): JSX.Element {
+export default function Repositories({ repoData }: any): JSX.Element {
+    const [search, setSearch] = useState<string>("")
     interface Repo {
         id: number,
         name: string,
@@ -22,7 +24,13 @@ export default function Repositories(repoData: any): JSX.Element {
 
     return (
         <div id={styles.repositories}>
-            {Object.entries(repoData).map(([repoNum, object]) => 
+            <form id={styles.form}>
+                <input onChange={(event) => {setSearch(event.target.value)}} type="text" id={styles.searchbar} placeholder="Find a repository..." />
+            </form>
+            {repoData.filter((object: Repo) => {
+                if (search == "") return object
+                if (object.name.toLowerCase().includes(search.toLowerCase())) return object
+            }).map((object: object) => 
             {
             let repo = object as Partial<Repo>
             return(

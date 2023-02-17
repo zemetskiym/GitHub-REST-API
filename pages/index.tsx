@@ -46,6 +46,7 @@ export default function Home() {
       <main id={styles.main} style={positionForm}> 
         <div id={styles.layoutSidebar}>
           <h1 id={styles.title}>GitHub REST API</h1>
+          {!userData && <p id={styles.description}>Easily search and access public Github user data with this tool, which collects and sections the data. No data is saved by our website for privacy.</p>}
           <form id={styles.form} onSubmit={(event) => handleSubmit(event)}>
             <input 
               id={styles.input}
@@ -70,7 +71,7 @@ export default function Home() {
           <div id={styles.layoutMain}>
             <SectionNav section={section} setSection={setSection} />
             {section == "overview" && <Overview {...userData} />}
-            {section == "repositories" && repoData != null && <Repositories {...repoData} />}
+            {section == "repositories" && repoData != null && <Repositories repoData={repoData} />}
             {section == "data" && <DataList {...userData} />}
           </div> 
         }

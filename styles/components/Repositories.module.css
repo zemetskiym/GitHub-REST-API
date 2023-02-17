@@ -4,9 +4,25 @@
 }
 
 .repository {
-    border: 1px  #21262d;
+    border: 1px #21262d;
     border-style: none none solid none;
     padding: 24px 0 24px 0;
+}
+
+#form {
+    padding: 20px 0;
+    border: 1px #21262d;
+    border-style: none none solid none;
+}
+
+#searchbar {
+    height: 35px;
+    padding: 0 10px 0 10px;
+    width: 100%;
+    border: 1px solid #21262d;
+    border-radius: 5px;
+    font-weight: 300;
+    font-size: 90%;
 }
 
 .title {
