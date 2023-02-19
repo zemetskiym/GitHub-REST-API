@@ -12,7 +12,7 @@ export default function LoginPage() {
         <div id={styles.textContainer}>
             <h2 id={styles.title}>Increase the Github rate limit and grant access to protected resources</h2>
             <p id={styles.description}>Securely login using your Github account with our website. We use the Github OAuth provider through next-auth, ensuring your information is never shared or stored on our servers. You can revoke access at any time, giving you complete control over your data.</p>
-            <button id={styles.signinBtn} onClick={() => signIn("github", { callbackUrl: "/", scope: "read:user" })}>Sign in with GitHub</button>
+            <button id={styles.signinBtn} onClick={() => signIn("github", { callbackUrl: "https://github-rest-user.netlify.app/api/auth/callback/github", scope: "read:user" })}>Sign in with GitHub</button>
         </div>
     </div>
   );
