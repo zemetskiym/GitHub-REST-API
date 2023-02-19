@@ -17,7 +17,7 @@ export default function Navbar (): JSX.Element {
             </ul>
             <ul className={styles.navSection}>
                 <li>
-                    <Link className={styles.navLink} target="_blank" href="https://docs.github.com/rest">
+                    <Link id={styles.documentation} className={styles.navLink} target="_blank" href="https://docs.github.com/rest">
                         Documentation
                     </Link>
                 </li>

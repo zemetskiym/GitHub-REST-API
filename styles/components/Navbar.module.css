@@ -15,7 +15,14 @@
 }
 
 .navLink {
+    cursor: pointer;
     margin-left: 20px;
     font-size: 90%;
     color: white;
+}
+
+@media screen and (max-width: 500px) {
+    #documentation {
+        display: none;
+    }
 }
