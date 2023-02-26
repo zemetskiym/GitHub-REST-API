@@ -1,3 +1,4 @@
+/* Reset default browser styles */
 * {
     font-size: 100%;
     vertical-align: baseline;
@@ -46,21 +47,24 @@ h6 {
     margin: 8px 0 4px 0
 }
   
-  /* Set default styles for paragraphs */
+/* Set default styles for paragraphs */
 p {
     margin: 1em 0;
     padding: 0;
     font-weight: 300;
 }
-  
+
+/* Set default styles for horizontal ruler */
 hr {
     border: solid #727a83 1px;
 }
 
+/* Define default styles for links */
 a {
     text-decoration: none;
 }
 
+/* Set Mona Sans font source and swap from sans-seriff */
 @font-face {
     font-family: 'Mona Sans';
     src:
