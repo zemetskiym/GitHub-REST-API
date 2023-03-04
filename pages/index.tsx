@@ -1,3 +1,4 @@
+// Import required modules and components
 import { FormEvent, useState } from 'react'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
@@ -8,32 +9,46 @@ import DataList from '@/components/DataList'
 import Repositories from '@/components/Repositories'
 
 export default function Home() {
+
+  // Define a type for the user search state
   type UserSearch = {user: string, submitted: boolean}
+
+  // Set the initial state for user search, section, user data and repository data
   const [userSearch, setUserSearch] = useState<UserSearch>({user: "", submitted: false})
   const [userData, setUserData] = useState<object | null>(null)
   const [repoData, setRepoData] = useState<object | null>(null)
   const [section, setSection] = useState<string>("overview")
 
+  // Fetch user and repository data from the GitHub REST API
   async function fetchData() {
     let userResponse: Response = await fetch(`https://api.github.com/users/${userSearch.user}`)
     let userData: object = await userResponse.json()
+
+    // Set the user data state if the user exists
     if (!userData.hasOwnProperty('message')) setUserData(userData)
+
+    // If the user doesn't exist, display an alert message
     if (userData.hasOwnProperty('message')) alert("Invalid username. Please try again.")
 
     let repositoryResponse: Response = await fetch(`https://api.github.com/users/${userSearch.user}/repos`)
     let repositoryData: object = await repositoryResponse.json()
+
+    // Set the repository data state if the repository data exists
     if (!repositoryData.hasOwnProperty('message')) setRepoData(repositoryData)
   }
 
+  // Fetch data and prevent refresh on form submission
   function handleSubmit(event: FormEvent) {
     event.preventDefault()
     fetchData()
   }
 
+  // Set the position of the form based on whether user data exists
   const positionForm = {
     alignItems: userData ? "flex-start" : "center"
   }
 
+  // Return the Home component with the necessary elements and components
   return (
     <>
       <Head>
@@ -69,6 +84,7 @@ export default function Home() {
         )}
         </div>
 
+        {/* If userdata exists, display the correct section */}
         {userData && 
           <div id={styles.layoutMain}>
             <SectionNav section={section} setSection={setSection} />
