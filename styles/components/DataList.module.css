@@ -14,20 +14,18 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    padding: 3px;
+    padding: 3px 0;
     font-size: 70%;
 }
 
 .key {
     color: #75bfff;
     width: 25%;
-    padding-left: 2%;
 }
 
 .value {
     width: 75%;
     word-wrap: break-word;
-    padding-right: 2%;
 }
 
 @media screen and (max-width: 630px) {

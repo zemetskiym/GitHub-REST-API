@@ -62,18 +62,16 @@ function determineDataColor(key: string, value: null | number | boolean | string
 // Component that displays a list of data
 export default function DataList(userData: Partial<User>): JSX.Element {
   return (
-    <div id={styles.secondSection}>
-      <div id={styles.data}>
-        {/* Mapping over the entries of the userData object and displaying the key-value pairs */}
-        {Object.entries(userData).map(([key, value]) => (
-          <div key={key}>
-            <>
-              {/* Invoking the determineDataColor function to determine the color of the data */}
-              {determineDataColor(key, value)}
-            </>
-          </div>
-        ))}
-      </div>
+    <div id={styles.data}>
+      {/* Mapping over the entries of the userData object and displaying the key-value pairs */}
+      {Object.entries(userData).map(([key, value]) => (
+        <div key={key}>
+          <>
+            {/* Invoking the determineDataColor function to determine the color of the data */}
+            {determineDataColor(key, value)}
+          </>
+        </div>
+      ))}
     </div>
   )
 }
