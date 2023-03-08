@@ -64,6 +64,11 @@ a {
     text-decoration: none;
 }
 
+/* Add border to focused forms */
+input:focus {
+    border: 2px rgb(0, 191, 255) solid;
+}
+
 /* Set Mona Sans font source and swap from sans-seriff */
 @font-face {
     font-family: 'Mona Sans';
