@@ -4,6 +4,8 @@ A website that collects public information on Github users using the Github API.
 ## Features
 - User search by Github username
 - Display of user profile information, including avatar, name, bio, location, and website
+- Display of user repositories, including the repository name, description, and number of stars
+- User data received from the Github API call is displayed
 
 ## Technologies Used
 - Next.js
