@@ -11,9 +11,6 @@ import { useAppContext } from '@/components/context'
 
 export default function Home() {
 
-  // Define a type for the user search state
-  type UserSearch = {user: string, submitted: boolean}
-
   // Set the initial state for user search, section, user data and repository data
   const { searchState, userState, repoState } = useAppContext()
   const [userSearch, setUserSearch] = searchState
