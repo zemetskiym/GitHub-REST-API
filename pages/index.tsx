@@ -15,8 +15,8 @@ export default function Home() {
   type UserSearch = {user: string, submitted: boolean}
 
   // Set the initial state for user search, section, user data and repository data
-  const [userSearch, setUserSearch] = useState<UserSearch>({user: "", submitted: false})
-  const { userState, repoState } = useAppContext()
+  const { searchState, userState, repoState } = useAppContext()
+  const [userSearch, setUserSearch] = searchState
   const [userData, setUserData] = userState
   const [repoData, setRepoData] = repoState
   const [section, setSection] = useState<string>("overview")
