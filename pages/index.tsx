@@ -7,6 +7,7 @@ import Profile from '@/components/Profile'
 import SectionNav from '@/components/SectionNav'
 import DataList from '@/components/DataList'
 import Repositories from '@/components/Repositories'
+import { useAppContext } from '@/components/context'
 
 export default function Home() {
 
@@ -15,8 +16,9 @@ export default function Home() {
 
   // Set the initial state for user search, section, user data and repository data
   const [userSearch, setUserSearch] = useState<UserSearch>({user: "", submitted: false})
-  const [userData, setUserData] = useState<object | null>(null)
-  const [repoData, setRepoData] = useState<object | null>(null)
+  const { userState, repoState } = useAppContext()
+  const [userData, setUserData] = userState
+  const [repoData, setRepoData] = repoState
   const [section, setSection] = useState<string>("overview")
 
   // Fetch user and repository data from the GitHub REST API
