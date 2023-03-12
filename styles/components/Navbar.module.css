@@ -31,6 +31,12 @@
     filter: invert(100%) sepia(1%) saturate(159%) hue-rotate(259deg) brightness(116%) contrast(100%);
 }
 
+#search {
+    cursor: pointer;
+    filter: invert(100%) sepia(1%) saturate(159%) hue-rotate(259deg) brightness(116%) contrast(100%);
+    margin-right: 20px;
+}
+
 #dropdown {
     position: absolute;
     top: 6vh;

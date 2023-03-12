@@ -4,14 +4,28 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import { useSession, signIn, signOut } from "next-auth/react"
+import { useAppContext } from '@/components/context'
 
 // Defining the Navbar component
 export default function Navbar (): JSX.Element {
     // Retrieving the user's session data
     const { data: session } = useSession()
 
+    // Destructuring app context for userSearch, userData, and repoData
+    const { searchState, userState, repoState } = useAppContext()
+    const [userSearch, setUserSearch] = searchState
+    const [userData, setUserData] = userState
+    const [repoData, setRepoData] = repoState
+
     // Setting state for mobile dropdown menu
     const [mobileDropdown, setMobileDropdown] = useState<Boolean>(false)
+
+    // Function to reset state for mobile layout
+    function resetState() {
+        setUserSearch({user: "", submitted: false})
+        setUserData(null)
+        setRepoData(null)
+    }
 
     // Rendering the navbar with links and optional sign in/out button
     return (
@@ -54,7 +68,12 @@ export default function Navbar (): JSX.Element {
                 </li>
             </ul>
             <ul className={styles.navMobileSection}>
-                <Image onClick={() => setMobileDropdown(!mobileDropdown)} alt="Menu" id={styles.hamburger} src="/hamburger.svg" height={25} width={25} />
+                <li>
+                    <Image onClick={() => resetState()} alt="Search" id={styles.search} src="/search.svg" height={25} width={25} />
+                </li>
+                <li>
+                    <Image onClick={() => setMobileDropdown(!mobileDropdown)} alt="Menu" id={styles.hamburger} src="/hamburger.svg" height={25} width={25} />
+                </li>
             </ul>
 
             {/* Render mobile dropdown menu if state is true */}
