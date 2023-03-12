@@ -27,6 +27,14 @@ export default function Navbar (): JSX.Element {
         setRepoData(null)
     }
 
+    // Function to set search state to submitted on enter key
+    function handleKeyDown (event: React.KeyboardEvent) {
+        if(event.key === "Enter") {
+            event.preventDefault()
+            setUserSearch(prev => ({user: prev.user, submitted: true}))
+        }
+    }
+
     // Rendering the navbar with links and optional sign in/out button
     return (
         <nav id={styles.nav}>
@@ -36,6 +44,17 @@ export default function Navbar (): JSX.Element {
                     <Link href="/">
                         <Image alt="" src="/github.svg" height={30} width={30} />
                     </Link>
+                </li>
+                <li>
+                    <form>
+                        <input 
+                            id={styles.textInput} 
+                            placeholder="Jump to a user..."
+                            type="text" 
+                            onChange={(event) => setUserSearch(prev => ({user: event.target.value, submitted: prev.submitted}))} 
+                            onKeyDown={handleKeyDown}
+                        />
+                    </form>
                 </li>
             </ul>
             <ul className={styles.navDesktopSection}>

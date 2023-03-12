@@ -1,5 +1,5 @@
 // Import required modules and components
-import { FormEvent, useState } from 'react'
+import { FormEvent, useState, useEffect } from 'react'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Overview from '@/components/Overview'
@@ -36,10 +36,14 @@ export default function Home() {
     if (!repositoryData.hasOwnProperty('message')) setRepoData(repositoryData)
   }
 
+  useEffect(() => {
+    if (userSearch.submitted == true) fetchData()
+  }, [userSearch])
+
   // Fetch data and prevent refresh on form submission
   function handleSubmit(event: FormEvent) {
     event.preventDefault()
-    fetchData()
+    setUserSearch(prev => ({user: prev.user, submitted: true}))
   }
 
   // Set the position of the form based on whether user data exists
