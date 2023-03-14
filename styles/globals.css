@@ -61,6 +61,7 @@ hr {
 
 /* Define default styles for links */
 a {
+    color: #58a6ff;
     text-decoration: none;
 }
 
