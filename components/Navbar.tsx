@@ -32,6 +32,8 @@ export default function Navbar (): JSX.Element {
         if(event.key === "Enter") {
             event.preventDefault()
             setUserSearch(prev => ({user: prev.user, submitted: true}))
+        } else {
+            setUserSearch(prev => ({user: prev.user, submitted: false}))
         }
     }
 
