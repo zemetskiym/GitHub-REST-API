@@ -33,6 +33,7 @@ export default function Navbar (): JSX.Element {
             event.preventDefault()
             setUserSearch(prev => ({user: prev.user, submitted: true}))
         } else {
+            // If enter key is not typed, undo the submission
             setUserSearch(prev => ({user: prev.user, submitted: false}))
         }
     }
