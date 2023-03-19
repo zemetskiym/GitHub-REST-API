@@ -23,19 +23,26 @@ export default function Home() {
     let userResponse: Response = await fetch(`https://api.github.com/users/${userSearch.user}`)
     let userData: object = await userResponse.json()
 
-    // Set the user data state if the user exists
-    if (!userData.hasOwnProperty('message')) setUserData(userData)
-
-    // If the user doesn't exist, display an alert message
-    if (userData.hasOwnProperty('message')) alert("Invalid username. Please try again.")
+    // Add error alert for rate limit
+    if (userResponse.status === 403) {
+      alert("API rate limit exceeded. Please sign in to authenticate with the Github API or try again later.")
+    } else if (userResponse.status === 404) {
+      // Add error alert for invalid username
+      alert("Invalid username. Please try again.")
+    } else if (userResponse.status >= 200 && userResponse.status < 300) {
+      // Set the user data state if the user exists
+      setUserData(userData)
+    } else {
+      alert(`An unknown error occurred, try again later. Error code: ${userResponse.status}.`)
+    }
 
     let repositoryResponse: Response = await fetch(`https://api.github.com/users/${userSearch.user}/repos`)
     let repositoryData: object = await repositoryResponse.json()
 
     // Set the repository data state if the repository data exists
-    if (!repositoryData.hasOwnProperty('message')) setRepoData(repositoryData)
+    if (repositoryResponse.status >= 200 && userResponse.status < 300) setRepoData(repositoryData)
   }
-
+  console.log(userData)
   useEffect(() => {
     if (userSearch.submitted == true) fetchData()
   }, [userSearch])
