@@ -1,6 +1,6 @@
 // Importing necessary dependencies
 import styles from "../styles/components/Overview.module.css"
-import { useState, useEffect } from "react"
+import { useState, useMemo } from "react"
 import { marked } from 'marked';
 import Link from "next/link";
 
@@ -39,34 +39,30 @@ interface User {
     updated_at: string
 }
 
+// Interface describing Readme object properties
+interface Readme {content: string}
+
 // Component definition
 export default function Overview (userData: Partial<User>): JSX.Element {
     // State variables declaration
-    const [readme, setReadme] = useState<any>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<any>(null);
+    const [readmeContent, setReadmeContent] = useState<string | null>(null); // Add new state variable
 
-    // Interface describing Readme object properties
-    interface Readme {content: string}
-
-    // Side effect to fetch the user's profile readme
-    useEffect(() => {
-        async function fetchData () {
-            setLoading(true)
-            try {
-                let readmeResponse: Response = await fetch(`https://api.github.com/repos/${userData.login}/${userData.login}/readme`)
-                let readmeData: Readme = await readmeResponse.json()
-                setReadme(marked.parse(Buffer.from(readmeData.content, "base64").toString()))
-                setLoading(false) 
-            } catch(error) {
-                setError(true)
-                return
-            }
+    // Use memo to memoize the result of the API call
+    useMemo(async () => {
+        setLoading(true)
+        try {
+            let readmeResponse: Response = await fetch(`https://api.github.com/repos/${userData.login}/${userData.login}/readme`)
+            let readmeData: Readme = await readmeResponse.json()
+            setLoading(false)
+            setReadmeContent(marked.parse(Buffer.from(readmeData.content, "base64").toString())) // Update state with resolved content
+        } catch(error) {
+            setError(true)
             setLoading(false)
         }
-        fetchData()
     }, [userData])
-    
+
     // If an error occurs during the fetch, a message with a link to the documentation is displayed
     if (error) return (
         <div id={styles.error}>This user has no profile readme. For more information, visit the documentation 
@@ -75,13 +71,13 @@ export default function Overview (userData: Partial<User>): JSX.Element {
     )
 
     // While the fetch is in progress, a loading message is displayed
-    if (loading) return (<div id={styles.loading}>Loading...</div>)
+    if (loading || readmeContent === null) return (<div id={styles.loading}>Loading...</div>)
 
     // If no error occurs and the fetch is successful, the user's profile readme is displayed
     return (
         <div id={styles.readmeContainer}>
             <small id={styles.title}>{userData.login} <span style={{color: "#727a83"}}>/</span> README<span style={{color: "#727a83"}}>.md</span></small>
-            <div dangerouslySetInnerHTML={{__html: readme}} />
+            <div dangerouslySetInnerHTML={{__html: readmeContent}} />
         </div>
     )
 }
