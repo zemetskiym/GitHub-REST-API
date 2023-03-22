@@ -65,7 +65,7 @@ export default function Overview (userData: Partial<User>): JSX.Element {
 
     // If an error occurs during the fetch, a message with a link to the documentation is displayed
     if (error) return (
-        <div id={styles.error}>This user has no profile readme. For more information, visit the documentation 
+        <div id={styles.error}>This user has no profile readme. For more information, visit the documentation{" "}
             <Link id={styles.documentation} target="_blank" href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme">here</Link>.
         </div>
     )
