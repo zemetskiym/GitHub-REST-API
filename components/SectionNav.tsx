@@ -18,7 +18,8 @@ export default function SectionNav({ section, setSection }: Props): JSX.Element 
 
     // Return JSX for the component
     return (
-        <nav id={styles.sectionNav}>
+        <nav>
+            <div id={styles.borderBottom}></div>
             <ul id={styles.sectionList}>
                 <li className={styles.sectionItem} style={underlineSelection("overview")} onClick={() => setSection("overview")}>
                     <Image className={styles.icon} src="/book.svg" alt="" height={15} width={15} />
