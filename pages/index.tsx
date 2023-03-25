@@ -7,6 +7,7 @@ import Profile from '@/components/Profile'
 import SectionNav from '@/components/SectionNav'
 import DataList from '@/components/DataList'
 import Repositories from '@/components/Repositories'
+import ErrorBox from '@/components/ErrorBox'
 import { useAppContext } from '@/components/context'
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
   const [userData, setUserData] = userState
   const [repoData, setRepoData] = repoState
   const [section, setSection] = useState<string>("overview")
+  const [error, setError] = useState<string | null>(null)
 
   // Fetch user and repository data from the GitHub REST API
   async function fetchData() {
@@ -25,15 +27,15 @@ export default function Home() {
 
     // Add error alert for rate limit
     if (userResponse.status === 403) {
-      alert("API rate limit exceeded. Please sign in to authenticate with the Github API or try again later.")
+      setError("API rate limit exceeded. Please sign in to authenticate with the Github API or try again later.")
     } else if (userResponse.status === 404) {
       // Add error alert for invalid username
-      alert("Invalid username. Please try again.")
+      setError("Invalid username. Please try again.")
     } else if (userResponse.status >= 200 && userResponse.status < 300) {
       // Set the user data state if the user exists
       setUserData(userData)
     } else {
-      alert(`An unknown error occurred, try again later. Error code: ${userResponse.status}.`)
+      setError(`An unknown error occurred, try again later. Error code: ${userResponse.status}.`)
     }
 
     let repositoryResponse: Response = await fetch(`https://api.github.com/users/${userSearch.user}/repos`)
@@ -69,6 +71,9 @@ export default function Home() {
         <link rel="preload" href="Mona-Sans.woff2" as="font" type="font/woff2" crossOrigin="anonymous"></link>
       </Head>
       <main id={styles.main} style={positionForm}> 
+        {/* Add the ErrorBox section here */}
+        <ErrorBox error={error} setError={setError} />
+
         <div id={styles.layoutSidebar}>
           {!userData && <div id={styles.intro} style={!userData ? {flexDirection: "column"} : {}}>
             <h1 id={styles.title}>GitHub REST API</h1>
