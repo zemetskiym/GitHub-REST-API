@@ -11,6 +11,7 @@
     margin-right: 1vh;
 }
 
+/* Styling for the top section of the error box */
 #topSection {
     display: flex;
     margin-bottom: 5px;
@@ -24,6 +25,7 @@
     margin-left: 8px;
 }
 
+/* Styling for the message in the error box */
 #message {
     display: block;
     color: #000000;
