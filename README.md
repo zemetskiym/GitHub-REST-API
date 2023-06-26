@@ -1,4 +1,4 @@
-# Github REST API
+# Github Profile Demo
 A website that collects public information on Github users using the Github API.
 
 ## Features
