@@ -64,7 +64,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>GitHub REST API</title>
+        <title>GitHub Profile Demo</title>
         <meta name="description" content="Discover your Github statistics with our website. Enter your Github username and get a detailed breakdown of your repositories, contributions, and more. Stay updated on your Github activity, all in one place, with our simple and easy-to-use API integration with Github" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/github.svg" />
@@ -76,8 +76,8 @@ export default function Home() {
 
         <div id={styles.layoutSidebar}>
           {!userData && <div id={styles.intro} style={!userData ? {flexDirection: "column"} : {}}>
-            <h1 id={styles.title}>GitHub REST API</h1>
-            <p id={styles.description}>Easily search and access public Github user data with this tool, which collects and sections the data. No data is saved by our website for privacy.</p>
+            <h1 id={styles.title}>GitHub Profile Demo</h1>
+            <p id={styles.description}>Easily search and access public Github user data with this tool, which collects and sorts the data.</p>
             <form id={styles.form} onSubmit={(event) => handleSubmit(event)}>
               <input 
                 id={styles.input}
