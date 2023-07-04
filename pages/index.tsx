@@ -84,7 +84,7 @@ export default function Home() {
                 type="text" 
                 value={userSearch.user}
                 onChange={(event) => setUserSearch(prev => ({user: event.target.value, submitted: prev.submitted}))}
-                placeholder='Search by user...'
+                placeholder='Github username*'
               />
               <button id={styles.submit}>
                 Submit
