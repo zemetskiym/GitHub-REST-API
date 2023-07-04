@@ -44,7 +44,7 @@ export default function Home() {
     // Set the repository data state if the repository data exists
     if (repositoryResponse.status >= 200 && userResponse.status < 300) setRepoData(repositoryData)
   }
-  console.log(userData)
+
   useEffect(() => {
     if (userSearch.submitted == true) fetchData()
   }, [userSearch])
