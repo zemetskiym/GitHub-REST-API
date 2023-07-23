@@ -65,7 +65,7 @@ export default function Home() {
     <>
       <Head>
         <title>GitHub Profile Demo</title>
-        <meta name="description" content="Discover your Github statistics with our website. Enter your Github username and get a detailed breakdown of your repositories, contributions, and more. Stay updated on your Github activity, all in one place, with our simple and easy-to-use API integration with Github" />
+        <meta name="description" content="Explore a seamless simulation of GitHub profiles on our demo website. Discover a professional showcase of developers' projects, contributions, and activities in a user-friendly interface." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/github.svg" />
         <link rel="preload" href="Mona-Sans.woff2" as="font" type="font/woff2" crossOrigin="anonymous"></link>
