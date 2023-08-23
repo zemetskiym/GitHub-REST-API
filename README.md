@@ -20,9 +20,10 @@ Check out [the live demo here](https://github-rest-user.netlify.app/).
 To run the project locally, follow these steps:
 1. Clone the repository
 2. Navigate to the project directory
-3. Run `npm install` to install dependencies
-4. Run `npm run dev` to start the development server
-5. Open `http://localhost:3000` in your web browser to view the app
+3. Ensure you have [Node.js](https://nodejs.org/) installed. If not, download and install it.
+4. Run `npm install` to install dependencies
+5. Run `npm run dev` to start the development server
+6. Open `http://localhost:3000` in your web browser to view the app
 
 ## Contributing
 Feel free to submit a pull request or open an issue for any bugs or enhancements.
